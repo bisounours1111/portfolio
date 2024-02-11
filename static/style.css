@@ -476,7 +476,6 @@ header {
 
 #desc1_container {
     width: 53.7vw;
-    height: 100%;
     display: inline-block;
     margin: 0;
 }
@@ -529,7 +528,7 @@ header {
     max-width: 40vh;
     max-height: 40vh;
 
-    background-image: url("/static/photo.jpg");
+    background-image: url("/static/photo.webp");
     background-size: cover;
     background-position: center;
     border-radius: 40%;
