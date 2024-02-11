@@ -246,7 +246,7 @@ header {
 
 #navbar a:hover {
     cursor: pointer;
-    color: #FF2121;
+    color: #555;
 }
 
 .margin_left20 {
@@ -881,13 +881,17 @@ header {
 }
 
 .clickme {
-    color: var(--color-text2);
+    color: var(--color2);
     cursor: pointer;
     text-decoration: none;
+    transition: transform 0.5s;
 }
 
 .clickme:hover {
-    color: var(--color2);
+    color: #8657f3;
+    border-radius: 20px;
+    transform: scale(2);
+
 }
 
 .contact {
@@ -915,6 +919,7 @@ textarea {
     background-color: var(--color1);
     color: var(--color-text1);
     outline: none;
+    max-width: 600px;
 }
 
 textarea {

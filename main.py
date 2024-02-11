@@ -1,9 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for
 
-app = Flask(__name__)
 import smtplib, ssl, json
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+
+app = Flask(__name__)
 
 def envoyer_email(destinataire, username):
     email_host = "smtp.gmail.com"
