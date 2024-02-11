@@ -7,7 +7,7 @@
     <title>Document</title>
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Lalezar' rel='stylesheet'>
-    <link id="style" rel="stylesheet" href="style.css">
+    <link id="style" rel="stylesheet" href="/static/style.css">
 </head>
 
 <body>
@@ -21,7 +21,7 @@
             <a class="fontsize_title2 color-text2 margin_right20">Compétences</a>
             <a class="fontsize_title2 color-text2 margin_right20">Projets</a>
             <a class="fontsize_title2 color-text2 margin_right20">Contact</a>
-            <a class="fontsize_title2 color-text2 margin_left40 button_cv" href="/cv.pdf">CV</a>
+            <a class="fontsize_title2 color-text2 margin_left40 button_cv" href="/static/cv.pdf">CV</a>
         </div>
     </header>
 
@@ -48,12 +48,11 @@
         <div class="lightbar"></div>
     </div>
 
-    <div class="main">
-        <h1 class="writing" id="main_1"></h1>
+    <div class="main" style="justify-content: center">
         <div id="desc1_container">
             <p class="flex_column">
             </p>
-            <h1 class="fontsize_title2 fontw_100 color-text1">À propos</h1>
+            <h1 class="fontsize_title2 fontw_100 color-text1" style="margin-top: 10%;">À propos</h1>
             <div class="height_50vh">
                 <h2 class="fontsize_desc fontw_100 color-text2">
                     Étudiant en développement Web en 2ème année <br>
@@ -123,31 +122,79 @@
         </section>
         <div class="lightbar"></div>
     </div>
-    <div class="main center">
+    <div class="main center" style="flex-direction: column;">
         <section class="projects">
-            <div class="content">
-                <div class="year"><i class="bx bxs-calendar"></i>2024</div>
-                <p class="title">Site d'apprentissage du langage python</p>
-                <p>Technologie utilisé : Python, HTML, CSS, JS, MySql, AWS</p>
-                <a class="cliclme">Voir</a>
-            </div>
-            <div class="content">
-                <div class="year"><i class="bx bxs-calendar"></i>2024</div>
-                <p class="title">Site d'apprentissage du langage python</p>
-                <p>Technologie utilisé : Python, HTML, CSS, JS, MySql, AWS</p>
-                <a class="cliclme">Voir</a>
-            </div>
-            <div class="content">
-                <div class="year"><i class="bx bxs-calendar"></i>2024</div>
-                <p class="title">Site d'apprentissage du langage python</p>
-                <p>Technologie utilisé : Python, HTML, CSS, JS, MySql, AWS</p>
-                <a class="cliclme">Voir</a>
+            <div class="slides">
+                <div class="content">
+                    <img src="/static/cover.jpg" alt="cover" class="cover">
+                    <div class="year"><i class="bx bxs-calendar"></i>2024</div>
+                    <p class="title">Site d'apprentissage du langage python </p>
+                    <p>Technologie utilisé : Python, HTML, CSS, JS, MySql, AWS</p>
+                    <a class="clickme">Voir</a>
+                </div>
+                <div class="content">
+                    <img src="/static/coverblindhub.png" alt="cover" class="cover">
+                    <div class="year"><i class="bx bxs-calendar"></i>2024</div>
+                    <p class="title">Site de BlindTest</p>
+                    <p>Technologie utilisé : Python, HTML, CSS, JS, MySQL, AWS, SocketIO</p>
+                    <a class="clickme">Voir</a>
+                </div>
+                <div class="content">
+                    <img src="/static/coverhow.png" alt="cover" class="cover">
+                    <div class="year"><i class="bx bxs-calendar"></i>2023</div>
+                    <p class="title">Escape Game en coopération (How ?!)</p>
+                    <p>Technologie utilisé : Unity, AWS, MySQL, NetCode</p>
+                    <a class="clickme" href="https://www.youtube.com/watch?v=Z_WZ0Orbqj8">Voir</a>
+                </div>
+                <div class="content">
+                    <img src="/static/cover.jpg" alt="cover" class="cover">
+                    <div class="year"><i class="bx bxs-calendar"></i>2023</div>
+                    <p class="title">Tower Defense</p>
+                    <p>Technologie utilisé : Roblox Studio, Lua</p>
+                </div>
+                <div class="content">
+                    <img src="/static/cover.jpg" alt="cover" class="cover">
+                    <div class="year"><i class="bx bxs-calendar"></i>2022</div>
+                    <p class="title">Création de plugin Minecraft</p>
+                    <p>Technologie utilisé : Java, MySQL, VPS</p>
+                </div>
             </div>
         </section>
+        <div class="navigation">
+            <img class="prev"
+                src="data:image/svg+xml,%3Csvg width='77' height='77' viewBox='0 0 77 77' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M38.5 19.25L19.25 38.5L38.5 57.75' stroke='white' stroke-width='7'/%3E%3Cpath d='M57.75 19.25L38.5 38.5L57.75 57.75' stroke='white' stroke-width='7'/%3E%3C/svg%3E"
+                alt="Précédent" onclick="prevSlide()">
+            <img class="next"
+                src="data:image/svg+xml,%3Csvg width='77' height='77' viewBox='0 0 77 77' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M38.5 57.75L57.75 38.5L38.5 19.25' stroke='white' stroke-width='7'/%3E%3Cpath d='M19.25 57.75L38.5 38.5L19.25 19.25' stroke='white' stroke-width='7'/%3E%3C/svg%3E"
+                alt="Suivant" onclick="nextSlide()">
+        </div>
         <div class="lightbar"></div>
     </div>
 
-    <script src="main.js"></script>
+    <div class="main center" style="flex-direction: column;">
+        <!-- Autres contenus ici... -->
+        <section class="contact">
+            <h2 class="fontsize_title2 fontw_100 color-text1">Contactez-moi</h2>
+            <form id="contact-form" action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">Nom :</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email :</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message :</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit">Envoyer</button>
+            </form>
+        </section>
+        <!-- Autres contenus ici... -->
+    </div>
+
+    <script src="/static/main.js"></script>
 </body>
 
 </html>
