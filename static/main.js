@@ -33,8 +33,10 @@ childs.forEach(function (child) {
 
         var target = child.getAttribute('href');
         var targetElement = document.querySelector(target);
-        var targetPosition = targetElement.offsetTop;
-        var startPosition = window.pageYOffset;
+        var headerHeight = document.querySelector('header').offsetHeight; // Obtenir la hauteur du header
+        var offset = headerHeight; // Ajouter l'offset du header à votre offset existant
+        var startPosition = window.pageYOffset; // Soustraire la hauteur du header
+        var targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
         var distance = targetPosition - startPosition;
         var duration = 1000;
         var start = null;
@@ -42,7 +44,8 @@ childs.forEach(function (child) {
         function animation(currentTime) {
             if (start === null) start = currentTime;
             var timeElapsed = currentTime - start;
-            var run = ease(timeElapsed, startPosition, distance, duration);
+            var offsetPosition = startPosition + distance * ease(timeElapsed, 0, 1, duration);
+            var run = offsetPosition;
             window.scrollTo(0, run);
             if (timeElapsed < duration) requestAnimationFrame(animation);
         }
@@ -55,8 +58,5 @@ childs.forEach(function (child) {
         }
 
         requestAnimationFrame(animation);
-        
-
     });
 });
-
