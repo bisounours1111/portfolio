@@ -78,5 +78,9 @@ def index():
     
     return render_template('index.html')
 
+@app.route('/stage', methods=['GET', 'POST'])
+def stage():
+    return render_template('stage.html')
+
 if __name__ == '__main__':
     app.run(debug=True, port=8081, host='0.0.0.0')
