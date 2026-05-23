@@ -42,12 +42,12 @@ async function submitContact() {
 <template>
   <section id="contact" class="section section--alt">
     <div class="container">
-      <header class="section-header">
+      <header v-scroll-reveal class="section-header">
         <h2 class="section-title">{{ t('sections.contact') }}</h2>
       </header>
 
       <div class="contact-grid">
-        <aside class="contact-info card">
+        <aside v-scroll-reveal="{ direction: 'left' }" class="contact-info card">
           <div class="contact-info__item">
             <i class="bx bx-map"></i>
             <div>
@@ -85,7 +85,7 @@ async function submitContact() {
           </div>
         </aside>
 
-        <form class="contact-form card" @submit.prevent="submitContact">
+        <form v-scroll-reveal="{ direction: 'right', delay: 100 }" class="contact-form card" @submit.prevent="submitContact">
           <div class="form-field">
             <label for="name">{{ t('contact.name') }}</label>
             <input v-model="form.name" id="name" type="text" required />
@@ -118,7 +118,7 @@ async function submitContact() {
     </div>
   </section>
 
-  <footer class="site-footer">
+  <footer v-scroll-reveal class="site-footer">
     <div class="container site-footer__inner">
       <p>&copy; {{ new Date().getFullYear() }} {{ profile.name }}</p>
     </div>
@@ -217,7 +217,7 @@ async function submitContact() {
   border: 1px solid var(--color-border-subtle);
   border-radius: var(--radius-md);
   color: var(--color-text-primary);
-  transition: border-color var(--transition), box-shadow var(--transition);
+  transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
   resize: vertical;
 }
 
@@ -226,6 +226,7 @@ async function submitContact() {
   outline: none;
   border-color: var(--color-accent);
   box-shadow: 0 0 0 3px var(--color-accent-muted);
+  transform: translateY(-1px);
 }
 
 .form-field input::placeholder,

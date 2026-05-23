@@ -71,7 +71,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <header class="site-header" :class="{ 'site-header--scrolled': scrolled }">
+  <header class="site-header" :class="{ 'site-header--scrolled': scrolled, 'site-header--loaded': true }">
     <div class="container site-header__inner">
       <a href="#home" class="site-header__brand" @click="closeMenu">Yanis</a>
 
@@ -126,7 +126,19 @@ onUnmounted(() => {
   inset: 0 0 auto;
   z-index: 100;
   height: var(--header-height);
-  transition: background var(--transition), backdrop-filter var(--transition), border-color var(--transition);
+  transform: translateY(-100%);
+  opacity: 0;
+  transition:
+    transform 0.6s var(--ease-out-expo),
+    opacity 0.6s var(--ease-out-expo),
+    background var(--transition),
+    backdrop-filter var(--transition),
+    border-color var(--transition);
+}
+
+.site-header--loaded {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .site-header--scrolled {
@@ -160,18 +172,37 @@ onUnmounted(() => {
 }
 
 .site-header__link {
+  position: relative;
   padding: 0.5rem 1rem;
   font-size: 0.9375rem;
   font-weight: 500;
   color: var(--color-text-muted);
   border-radius: var(--radius-full);
-  transition: color var(--transition), background var(--transition);
+  transition: color var(--transition), background var(--transition), transform var(--transition-spring);
+}
+
+.site-header__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0.35rem;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--color-accent);
+  border-radius: var(--radius-full);
+  transform: translateX(-50%);
+  transition: width var(--transition);
 }
 
 .site-header__link:hover,
 .site-header__link--active {
   color: var(--color-text-primary);
   background: var(--color-accent-muted);
+}
+
+.site-header__link--active::after,
+.site-header__link:hover:not(.site-header__link--cv)::after {
+  width: 1.25rem;
 }
 
 .site-header__link--cv {

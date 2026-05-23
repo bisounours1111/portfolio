@@ -13,6 +13,8 @@ export default {
     toggleMenu: 'Ouvrir le menu',
   },
   hero: {
+    badge: 'Disponible pour de nouvelles opportunités',
+    scrollHint: 'Défiler',
     projects: 'Projets',
     contact: 'Contact',
     cv: 'CV',

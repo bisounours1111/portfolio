@@ -14,12 +14,17 @@ const { t } = useI18n()
 <template>
   <section id="skills" class="section">
     <div class="container">
-      <header class="section-header">
+      <header v-scroll-reveal class="section-header">
         <h2 class="section-title">{{ t('sections.skills') }}</h2>
       </header>
 
       <div class="skills-grid">
-        <article v-for="group in technicalSkills" :key="group.category" class="card skill-card">
+        <article
+          v-for="(group, index) in technicalSkills"
+          :key="group.category"
+          v-scroll-reveal="{ delay: index * 80 }"
+          class="card skill-card"
+        >
           <h3 class="skill-card__title">{{ group.category }}</h3>
           <div class="skill-card__chips">
             <span v-for="item in group.items" :key="item" class="chip">{{ item }}</span>
@@ -28,7 +33,7 @@ const { t } = useI18n()
       </div>
 
       <div class="skills-secondary">
-        <article class="card skill-card">
+        <article v-scroll-reveal="{ delay: 80 }" class="card skill-card">
           <h3 class="skill-card__title">{{ t('sections.languages') }}</h3>
           <ul class="skill-list">
             <li v-for="lang in languages" :key="lang.name">
@@ -38,7 +43,7 @@ const { t } = useI18n()
           </ul>
         </article>
 
-        <article class="card skill-card">
+        <article v-scroll-reveal="{ delay: 160 }" class="card skill-card">
           <h3 class="skill-card__title">{{ t('sections.interests') }}</h3>
           <div class="skill-card__chips">
             <span v-for="interest in interests" :key="interest" class="chip">{{ interest }}</span>
@@ -47,9 +52,14 @@ const { t } = useI18n()
       </div>
 
       <div class="soft-skills">
-        <h3 class="soft-skills__heading">{{ t('sections.softSkills') }}</h3>
+        <h3 v-scroll-reveal class="soft-skills__heading">{{ t('sections.softSkills') }}</h3>
         <div class="soft-skills__grid">
-          <article v-for="skill in softSkills" :key="skill.title" class="card soft-skill-card">
+          <article
+            v-for="(skill, index) in softSkills"
+            :key="skill.title"
+            v-scroll-reveal="{ delay: index * 80 }"
+            class="card soft-skill-card"
+          >
             <h4 class="soft-skill-card__title">{{ skill.title }}</h4>
             <p class="soft-skill-card__text">{{ skill.description }}</p>
           </article>

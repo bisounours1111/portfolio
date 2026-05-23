@@ -12,15 +12,20 @@ const { t } = useI18n()
 <template>
   <section id="experience" class="section section--alt">
     <div class="container">
-      <header class="section-header">
+      <header v-scroll-reveal class="section-header">
         <h2 class="section-title">{{ t('sections.experienceEducation') }}</h2>
       </header>
 
       <div class="timeline-grid">
-        <div class="timeline-column">
+        <div v-scroll-reveal="{ direction: 'left' }" class="timeline-column">
           <h3 class="timeline-column__title">{{ t('sections.professionalExperience') }}</h3>
           <div class="timeline">
-            <article v-for="item in experiences" :key="item.title" class="timeline-item card">
+            <article
+              v-for="(item, index) in experiences"
+              :key="item.title"
+              v-scroll-reveal="{ delay: index * 100 }"
+              class="timeline-item card"
+            >
               <div class="timeline-item__marker"></div>
               <time class="timeline-item__date">{{ item.year }}</time>
               <h4 class="timeline-item__title">{{ item.title }}</h4>
@@ -33,10 +38,15 @@ const { t } = useI18n()
           </div>
         </div>
 
-        <div class="timeline-column">
+        <div v-scroll-reveal="{ direction: 'right' }" class="timeline-column">
           <h3 class="timeline-column__title">{{ t('sections.educationCertifications') }}</h3>
           <div class="timeline">
-            <article v-for="item in education" :key="item.title" class="timeline-item card">
+            <article
+              v-for="(item, index) in education"
+              :key="item.title"
+              v-scroll-reveal="{ delay: index * 100 }"
+              class="timeline-item card"
+            >
               <div class="timeline-item__marker"></div>
               <time class="timeline-item__date">{{ item.year }}</time>
               <h4 class="timeline-item__title">{{ item.title }}</h4>
@@ -88,6 +98,17 @@ const { t } = useI18n()
   background: var(--color-accent);
   border-radius: 50%;
   box-shadow: 0 0 12px var(--color-accent-glow);
+  animation: marker-pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes marker-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 8px var(--color-accent-glow);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--color-accent-glow), 0 0 0 4px rgba(125, 83, 222, 0.15);
+  }
 }
 
 .timeline-item__date {
@@ -129,5 +150,11 @@ const { t } = useI18n()
 
 .timeline-item__list li {
   margin-bottom: 0.35rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline-item__marker {
+    animation: none;
+  }
 }
 </style>

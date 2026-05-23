@@ -9,7 +9,7 @@ const props = defineProps({
 const { t } = useI18n()
 
 function parseTechnologies(technologies) {
-  return technologies.split(',').map((t) => t.trim())
+  return technologies.split(',').map((tech) => tech.trim())
 }
 
 const sortedProjects = computed(() =>
@@ -19,19 +19,39 @@ const sortedProjects = computed(() =>
     return yearB - yearA
   }),
 )
+
+function onTilt(event, element) {
+  const rect = element.getBoundingClientRect()
+  const x = (event.clientX - rect.left) / rect.width - 0.5
+  const y = (event.clientY - rect.top) / rect.height - 0.5
+
+  element.style.transform = `perspective(900px) rotateX(${y * -8}deg) rotateY(${x * 8}deg) translateY(-6px)`
+}
+
+function resetTilt(element) {
+  element.style.transform = ''
+}
 </script>
 
 <template>
   <section id="projects" class="section">
     <div class="container">
-      <header class="section-header">
+      <header v-scroll-reveal class="section-header">
         <h2 class="section-title">{{ t('sections.projects') }}</h2>
       </header>
 
       <div class="projects-grid">
-        <article v-for="project in sortedProjects" :key="project.title" class="project-card card">
+        <article
+          v-for="(project, index) in sortedProjects"
+          :key="project.title"
+          v-scroll-reveal="{ delay: index * 70, direction: 'scale' }"
+          class="project-card card"
+          @mousemove="onTilt($event, $event.currentTarget)"
+          @mouseleave="resetTilt($event.currentTarget)"
+        >
           <div class="project-card__media">
             <img :src="project.image" :alt="project.title" loading="lazy" />
+            <div class="project-card__overlay"></div>
             <span class="project-card__year">{{ project.year }}</span>
           </div>
           <div class="project-card__body">
@@ -74,6 +94,13 @@ const sortedProjects = computed(() =>
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.15s ease-out, box-shadow var(--transition);
+}
+
+.project-card:hover {
+  box-shadow: var(--shadow-card), 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .project-card__media {
@@ -87,11 +114,23 @@ const sortedProjects = computed(() =>
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease;
+  transition: transform 0.6s var(--ease-out-expo);
+}
+
+.project-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(28, 28, 28, 0.85), transparent 55%);
+  opacity: 0;
+  transition: opacity var(--transition);
 }
 
 .project-card:hover .project-card__media img {
-  transform: scale(1.05);
+  transform: scale(1.1);
+}
+
+.project-card:hover .project-card__overlay {
+  opacity: 1;
 }
 
 .project-card__year {
@@ -105,6 +144,7 @@ const sortedProjects = computed(() =>
   border: 1px solid var(--color-border);
   border-radius: var(--radius-full);
   backdrop-filter: blur(8px);
+  z-index: 1;
 }
 
 .project-card__body {
@@ -118,6 +158,11 @@ const sortedProjects = computed(() =>
   font-family: var(--font-family);
   font-size: 1.25rem;
   margin-bottom: 0.75rem;
+  transition: color var(--transition);
+}
+
+.project-card:hover .project-card__title {
+  color: var(--color-accent);
 }
 
 .project-card__tags {
@@ -137,5 +182,11 @@ const sortedProjects = computed(() =>
 
 .project-card__link {
   align-self: flex-start;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card {
+    will-change: auto;
+  }
 }
 </style>

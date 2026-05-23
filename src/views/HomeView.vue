@@ -6,6 +6,8 @@ import SkillsSection from '../components/SkillsSection.vue'
 import ExperienceSection from '../components/ExperienceSection.vue'
 import ProjectsSection from '../components/ProjectsSection.vue'
 import ContactSection from '../components/ContactSection.vue'
+import ScrollProgress from '../components/ScrollProgress.vue'
+import BackgroundEffects from '../components/BackgroundEffects.vue'
 import { profile, getSocialLinks } from '../data/portfolio.js'
 import { useI18n } from '../i18n'
 
@@ -29,6 +31,8 @@ const navLinks = computed(() => [
 </script>
 
 <template>
+  <ScrollProgress />
+  <BackgroundEffects />
   <AppHeader :links="navLinks" />
   <main>
     <HeroSection :profile="profileData" />

@@ -13,6 +13,8 @@ export default {
     toggleMenu: 'Toggle menu',
   },
   hero: {
+    badge: 'Open to opportunities',
+    scrollHint: 'Scroll',
     projects: 'Projects',
     contact: 'Contact',
     cv: 'CV',
