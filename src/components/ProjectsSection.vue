@@ -1,9 +1,12 @@
 <script setup>
 import { computed } from 'vue'
+import { useI18n } from '../i18n'
 
 const props = defineProps({
   projects: { type: Array, required: true },
 })
+
+const { t } = useI18n()
 
 function parseTechnologies(technologies) {
   return technologies.split(',').map((t) => t.trim())
@@ -22,7 +25,7 @@ const sortedProjects = computed(() =>
   <section id="projects" class="section">
     <div class="container">
       <header class="section-header">
-        <h2 class="section-title">Projects</h2>
+        <h2 class="section-title">{{ t('sections.projects') }}</h2>
       </header>
 
       <div class="projects-grid">
@@ -50,7 +53,7 @@ const sortedProjects = computed(() =>
               target="_blank"
               rel="noopener noreferrer"
             >
-              Voir <i class="bx bx-link-external"></i>
+              {{ t('projectLink.view') }} <i class="bx bx-link-external"></i>
             </a>
           </div>
         </article>
@@ -112,7 +115,7 @@ const sortedProjects = computed(() =>
 }
 
 .project-card__title {
-  font-family: var(--font-display);
+  font-family: var(--font-family);
   font-size: 1.25rem;
   margin-bottom: 0.75rem;
 }

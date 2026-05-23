@@ -1,10 +1,14 @@
 <script setup>
+import { useI18n } from '../i18n'
+
 defineProps({
   profile: {
     type: Object,
     required: true,
   },
 })
+
+const { t } = useI18n()
 </script>
 
 <template>
@@ -22,10 +26,10 @@ defineProps({
         </div>
 
         <div class="hero__actions">
-          <a href="#projects" class="btn btn-primary">Projects</a>
-          <a href="#contact" class="btn btn-outline">Contact</a>
+          <a href="#projects" class="btn btn-primary">{{ t('hero.projects') }}</a>
+          <a href="#contact" class="btn btn-outline">{{ t('hero.contact') }}</a>
           <a href="/cv.pdf" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
-            <i class="bx bx-download"></i> CV
+            <i class="bx bx-download"></i> {{ t('hero.cv') }}
           </a>
         </div>
       </div>
@@ -56,7 +60,8 @@ defineProps({
 }
 
 .hero__title {
-  font-family: var(--font-display);
+  font-family: var(--font-family);
+  font-weight: 700;
   font-size: clamp(2.75rem, 6vw, 4.5rem);
   line-height: 1.05;
   margin-bottom: 0.5rem;

@@ -1,10 +1,13 @@
 <script setup>
 import { ref } from 'vue'
+import { useI18n } from '../i18n'
 
 defineProps({
   profile: { type: Object, required: true },
   socialLinks: { type: Array, required: true },
 })
+
+const { t } = useI18n()
 
 const form = ref({ name: '', email: '', message: '' })
 const submitting = ref(false)
@@ -26,9 +29,9 @@ async function submitContact() {
     if (!response.ok) throw new Error('Failed to send')
 
     form.value = { name: '', email: '', message: '' }
-    submitMessage.value = 'Message sent successfully!'
+    submitMessage.value = t('contact.success')
   } catch {
-    submitMessage.value = 'Something went wrong. Please try again.'
+    submitMessage.value = t('contact.error')
     submitError.value = true
   } finally {
     submitting.value = false
@@ -40,7 +43,7 @@ async function submitContact() {
   <section id="contact" class="section section--alt">
     <div class="container">
       <header class="section-header">
-        <h2 class="section-title">Get in touch</h2>
+        <h2 class="section-title">{{ t('sections.contact') }}</h2>
       </header>
 
       <div class="contact-grid">
@@ -48,21 +51,21 @@ async function submitContact() {
           <div class="contact-info__item">
             <i class="bx bx-map"></i>
             <div>
-              <span class="contact-info__label">Location</span>
+              <span class="contact-info__label">{{ t('contact.location') }}</span>
               <span>{{ profile.location }}</span>
             </div>
           </div>
           <div class="contact-info__item">
             <i class="bx bx-envelope"></i>
             <div>
-              <span class="contact-info__label">Email</span>
+              <span class="contact-info__label">{{ t('contact.email') }}</span>
               <a :href="`mailto:${profile.email}`">{{ profile.email }}</a>
             </div>
           </div>
           <div class="contact-info__item">
             <i class="bx bx-phone"></i>
             <div>
-              <span class="contact-info__label">Phone</span>
+              <span class="contact-info__label">{{ t('contact.phone') }}</span>
               <a :href="profile.phoneHref">{{ profile.phone }}</a>
             </div>
           </div>
@@ -84,15 +87,15 @@ async function submitContact() {
 
         <form class="contact-form card" @submit.prevent="submitContact">
           <div class="form-field">
-            <label for="name">Name</label>
+            <label for="name">{{ t('contact.name') }}</label>
             <input v-model="form.name" id="name" type="text" required />
           </div>
           <div class="form-field">
-            <label for="email">Email</label>
+            <label for="email">{{ t('contact.email') }}</label>
             <input v-model="form.email" id="email" type="email" required />
           </div>
           <div class="form-field">
-            <label for="message">Message</label>
+            <label for="message">{{ t('contact.message') }}</label>
             <textarea
               v-model="form.message"
               id="message"
@@ -101,7 +104,7 @@ async function submitContact() {
             ></textarea>
           </div>
           <button type="submit" class="btn btn-primary" :disabled="submitting">
-            {{ submitting ? 'Sending...' : 'Send message' }}
+            {{ submitting ? t('contact.sending') : t('contact.send') }}
           </button>
           <p
             v-if="submitMessage"

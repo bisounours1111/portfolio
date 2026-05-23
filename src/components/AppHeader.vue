@@ -1,6 +1,10 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import { RouterLink } from 'vue-router'
+import LanguageSwitcher from './LanguageSwitcher.vue'
+import { useI18n } from '../i18n'
+
+const { t } = useI18n()
 
 defineProps({
   links: {
@@ -75,7 +79,7 @@ onUnmounted(() => {
         class="site-header__toggle"
         type="button"
         :aria-expanded="menuOpen"
-        aria-label="Toggle menu"
+        :aria-label="t('nav.toggleMenu')"
         @click="toggleMenu"
       >
         <span class="site-header__toggle-bar" :class="{ open: menuOpen }"></span>
@@ -110,6 +114,7 @@ onUnmounted(() => {
             {{ link.label }}
           </a>
         </template>
+        <LanguageSwitcher />
       </nav>
     </div>
   </header>
@@ -138,7 +143,7 @@ onUnmounted(() => {
 }
 
 .site-header__brand {
-  font-family: var(--font-display);
+  font-family: var(--font-family);
   font-size: 1.5rem;
   color: var(--color-text-primary);
   transition: color var(--transition);

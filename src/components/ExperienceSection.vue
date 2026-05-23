@@ -1,20 +1,24 @@
 <script setup>
+import { useI18n } from '../i18n'
+
 defineProps({
   experiences: { type: Array, required: true },
   education: { type: Array, required: true },
 })
+
+const { t } = useI18n()
 </script>
 
 <template>
   <section id="experience" class="section section--alt">
     <div class="container">
       <header class="section-header">
-        <h2 class="section-title">Experience & Education</h2>
+        <h2 class="section-title">{{ t('sections.experienceEducation') }}</h2>
       </header>
 
       <div class="timeline-grid">
         <div class="timeline-column">
-          <h3 class="timeline-column__title">Professional Experience</h3>
+          <h3 class="timeline-column__title">{{ t('sections.professionalExperience') }}</h3>
           <div class="timeline">
             <article v-for="item in experiences" :key="item.title" class="timeline-item card">
               <div class="timeline-item__marker"></div>
@@ -30,7 +34,7 @@ defineProps({
         </div>
 
         <div class="timeline-column">
-          <h3 class="timeline-column__title">Education & Certifications</h3>
+          <h3 class="timeline-column__title">{{ t('sections.educationCertifications') }}</h3>
           <div class="timeline">
             <article v-for="item in education" :key="item.title" class="timeline-item card">
               <div class="timeline-item__marker"></div>
@@ -57,7 +61,7 @@ defineProps({
 }
 
 .timeline-column__title {
-  font-family: var(--font-display);
+  font-family: var(--font-family);
   font-size: 1.375rem;
   color: var(--color-accent);
   margin-bottom: 1.5rem;

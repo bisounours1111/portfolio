@@ -1,17 +1,21 @@
 <script setup>
+import { useI18n } from '../i18n'
+
 defineProps({
   technicalSkills: { type: Array, required: true },
   languages: { type: Array, required: true },
   interests: { type: Array, required: true },
   softSkills: { type: Array, required: true },
 })
+
+const { t } = useI18n()
 </script>
 
 <template>
   <section id="skills" class="section">
     <div class="container">
       <header class="section-header">
-        <h2 class="section-title">Skills</h2>
+        <h2 class="section-title">{{ t('sections.skills') }}</h2>
       </header>
 
       <div class="skills-grid">
@@ -25,7 +29,7 @@ defineProps({
 
       <div class="skills-secondary">
         <article class="card skill-card">
-          <h3 class="skill-card__title">Languages</h3>
+          <h3 class="skill-card__title">{{ t('sections.languages') }}</h3>
           <ul class="skill-list">
             <li v-for="lang in languages" :key="lang.name">
               <span>{{ lang.name }}</span>
@@ -35,7 +39,7 @@ defineProps({
         </article>
 
         <article class="card skill-card">
-          <h3 class="skill-card__title">Interests</h3>
+          <h3 class="skill-card__title">{{ t('sections.interests') }}</h3>
           <div class="skill-card__chips">
             <span v-for="interest in interests" :key="interest" class="chip">{{ interest }}</span>
           </div>
@@ -43,7 +47,7 @@ defineProps({
       </div>
 
       <div class="soft-skills">
-        <h3 class="soft-skills__heading">Soft Skills</h3>
+        <h3 class="soft-skills__heading">{{ t('sections.softSkills') }}</h3>
         <div class="soft-skills__grid">
           <article v-for="skill in softSkills" :key="skill.title" class="card soft-skill-card">
             <h4 class="soft-skill-card__title">{{ skill.title }}</h4>
@@ -71,7 +75,7 @@ defineProps({
 }
 
 .skill-card__title {
-  font-family: var(--font-display);
+  font-family: var(--font-family);
   font-size: 1.25rem;
   color: var(--color-accent);
   margin-bottom: 1rem;
@@ -104,7 +108,7 @@ defineProps({
 }
 
 .soft-skills__heading {
-  font-family: var(--font-display);
+  font-family: var(--font-family);
   font-size: 1.5rem;
   margin-bottom: 1.25rem;
 }

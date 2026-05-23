@@ -6,42 +6,43 @@ import SkillsSection from '../components/SkillsSection.vue'
 import ExperienceSection from '../components/ExperienceSection.vue'
 import ProjectsSection from '../components/ProjectsSection.vue'
 import ContactSection from '../components/ContactSection.vue'
-import {
-  profile,
-  technicalSkills,
-  languages,
-  interests,
-  softSkills,
-  education,
-  experiences,
-  projects,
-  getSocialLinks,
-} from '../data/portfolio.js'
+import { profile, getSocialLinks } from '../data/portfolio.js'
+import { useI18n } from '../i18n'
+
+const { messages, t } = useI18n()
 
 const socialLinks = computed(() => getSocialLinks(profile))
 
-const navLinks = [
-  { to: '#home', label: 'Home' },
-  { to: '#skills', label: 'Skills' },
-  { to: '#experience', label: 'Experience' },
-  { to: '#projects', label: 'Projects' },
-  { to: '#contact', label: 'Contact' },
-  { to: '/cv.pdf', label: 'CV', class: 'button_cv', external: true },
-]
+const profileData = computed(() => ({
+  ...profile,
+  ...messages.value.profile,
+}))
+
+const navLinks = computed(() => [
+  { to: '#home', label: t('nav.home') },
+  { to: '#skills', label: t('nav.skills') },
+  { to: '#experience', label: t('nav.experience') },
+  { to: '#projects', label: t('nav.projects') },
+  { to: '#contact', label: t('nav.contact') },
+  { to: '/cv.pdf', label: t('nav.cv'), class: 'button_cv', external: true },
+])
 </script>
 
 <template>
   <AppHeader :links="navLinks" />
   <main>
-    <HeroSection :profile="profile" />
+    <HeroSection :profile="profileData" />
     <SkillsSection
-      :technical-skills="technicalSkills"
-      :languages="languages"
-      :interests="interests"
-      :soft-skills="softSkills"
+      :technical-skills="messages.technicalSkills"
+      :languages="messages.languages"
+      :interests="messages.interests"
+      :soft-skills="messages.softSkills"
     />
-    <ExperienceSection :experiences="experiences" :education="education" />
-    <ProjectsSection :projects="projects" />
-    <ContactSection :profile="profile" :social-links="socialLinks" />
+    <ExperienceSection
+      :experiences="messages.experiences"
+      :education="messages.education"
+    />
+    <ProjectsSection :projects="messages.projects" />
+    <ContactSection :profile="profileData" :social-links="socialLinks" />
   </main>
 </template>

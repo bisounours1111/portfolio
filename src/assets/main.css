@@ -13,8 +13,7 @@
   --color-border-subtle: rgba(255, 255, 255, 0.08);
   --color-danger: #ff2121;
 
-  --font-display: 'Lalezar', system-ui, sans-serif;
-  --font-body: 'DM Sans', system-ui, sans-serif;
+  --font-family: 'DM Sans', system-ui, sans-serif;
 
   --radius-sm: 0.5rem;
   --radius-md: 0.875rem;
@@ -44,7 +43,7 @@ html {
 }
 
 body {
-  font-family: var(--font-body);
+  font-family: var(--font-family);
   background: var(--color-bg);
   color: var(--color-text-primary);
   line-height: 1.6;
@@ -107,9 +106,9 @@ textarea {
 }
 
 .section-title {
-  font-family: var(--font-display);
+  font-family: var(--font-family);
   font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 400;
+  font-weight: 700;
   line-height: 1.1;
   color: var(--color-text-primary);
 }
