@@ -13,7 +13,7 @@ export default {
     toggleMenu: 'Toggle menu',
   },
   hero: {
-    badge: 'Open to opportunities',
+    badge: 'Available for freelance work',
     scrollHint: 'Scroll',
     projects: 'Projects',
     contact: 'Contact',
@@ -43,6 +43,20 @@ export default {
   },
   projectLink: {
     view: 'View',
+  },
+  projectsCarousel: {
+    prev: 'Previous project',
+    next: 'Next project',
+    goTo: 'Go to project',
+  },
+  projectModal: {
+    close: 'Close',
+    details: 'Learn more',
+    gallery: 'Screenshots',
+    projectBio: 'About the project',
+    imageCaption: 'About this screenshot',
+    noProjectBio: 'No description available.',
+    visit: 'Visit project',
   },
   profile: {
     title: 'Full-Stack Developer',

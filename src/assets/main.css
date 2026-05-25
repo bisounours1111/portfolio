@@ -199,32 +199,12 @@ textarea {
     border-color var(--transition),
     transform var(--transition-spring),
     box-shadow var(--transition);
-  overflow: hidden;
-}
-
-.card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    105deg,
-    transparent 40%,
-    rgba(125, 83, 222, 0.08) 50%,
-    transparent 60%
-  );
-  transform: translateX(-120%);
-  transition: transform 0.6s ease;
-  pointer-events: none;
-}
-
-.card:hover::before {
-  transform: translateX(120%);
 }
 
 .card:hover {
   border-color: var(--color-border);
   transform: translateY(-4px);
-  box-shadow: var(--shadow-card), 0 0 0 1px rgba(125, 83, 222, 0.1);
+  box-shadow: var(--shadow-card), 0 8px 32px rgba(125, 83, 222, 0.12);
 }
 
 .chip {

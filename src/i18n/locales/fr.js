@@ -13,7 +13,7 @@ export default {
     toggleMenu: 'Ouvrir le menu',
   },
   hero: {
-    badge: 'Disponible pour de nouvelles opportunités',
+    badge: 'Disponible pour une nouvelle tâche en freelance',
     scrollHint: 'Défiler',
     projects: 'Projets',
     contact: 'Contact',
@@ -43,6 +43,20 @@ export default {
   },
   projectLink: {
     view: 'Voir',
+  },
+  projectsCarousel: {
+    prev: 'Projet précédent',
+    next: 'Projet suivant',
+    goTo: 'Aller au projet',
+  },
+  projectModal: {
+    close: 'Fermer',
+    details: 'En savoir plus',
+    gallery: 'Captures',
+    projectBio: 'À propos du projet',
+    imageCaption: 'À propos de cette capture',
+    noProjectBio: 'Aucune description disponible.',
+    visit: 'Visiter le projet',
   },
   profile: {
     title: 'Développeur Full-Stack',
