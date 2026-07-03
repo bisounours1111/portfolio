@@ -10,7 +10,8 @@
     opacity 0.6s var(--ease-out-expo),
     background var(--transition),
     backdrop-filter var(--transition),
-    border-color var(--transition);
+    border-color var(--transition),
+    height var(--transition);
 }
 
 .site-header--loaded {
@@ -94,6 +95,8 @@
 
 .site-header__toggle {
   display: none;
+  position: relative;
+  z-index: 3;
   flex-direction: column;
   gap: 5px;
   padding: 0.5rem;
@@ -139,10 +142,16 @@
   .site-header--menu-open .site-header__inner {
     position: relative;
     z-index: 2;
+    height: var(--header-height);
+  }
+
+  .site-header--menu-open .site-header__brand {
+    position: relative;
+    z-index: 3;
   }
 
   .site-header__nav {
-    position: absolute;
+    position: fixed;
     inset: var(--header-height) 0 0;
     z-index: 1;
     flex-direction: column;
