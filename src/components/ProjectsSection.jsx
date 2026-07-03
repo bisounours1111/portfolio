@@ -195,7 +195,13 @@ export default function ProjectsSection({ projects }) {
                   >
                     <div className="carousel__slide-inner">
                       <div className="carousel__media">
-                        <img src={resolveAsset(project.image)} alt={project.title} loading="lazy" />
+                        <img
+                          src={resolveAsset(project.image)}
+                          alt={`${project.title} — ${project.year}`}
+                          loading="lazy"
+                          width={640}
+                          height={480}
+                        />
                       </div>
 
                       <div className="carousel__content">

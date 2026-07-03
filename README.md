@@ -75,3 +75,18 @@ public/           # Assets statiques (images, CV, favicon)
 ## Formulaire de contact
 
 Le formulaire appelle `/api/contact` (backend séparé requis). Sur GitHub Pages (hébergement statique), utilisez l'e-mail direct ou branchez un service externe (Formspree, Resend, etc.).
+
+## SEO
+
+Le portfolio inclut :
+
+- Meta tags enrichis (title, description, keywords, robots)
+- Open Graph et Twitter Cards (partage LinkedIn, Twitter, etc.)
+- Données structurées JSON-LD (Schema.org : Person, WebSite, ProfilePage)
+- `robots.txt` et `sitemap.xml` dans `public/`
+- Balises `hreflang` FR / EN
+- Contenu de fallback `<noscript>` pour les crawlers
+- URL canonique : https://bisounours1111.github.io/portfolio/
+
+**Après déploiement**, soumettez le sitemap à [Google Search Console](https://search.google.com/search-console) :
+`https://bisounours1111.github.io/portfolio/sitemap.xml`

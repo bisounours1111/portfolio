@@ -86,7 +86,13 @@ export default function HeroSection({ profile }) {
           <div className="hero__ring hero__ring--2" />
           <div className="hero__glow" />
           <div className="hero__photo" style={photoStyle} onMouseLeave={reduceMotion ? undefined : resetPhoto}>
-            <img src={`${import.meta.env.BASE_URL}photo.webp`} alt={profile.name} />
+            <img
+              src={`${import.meta.env.BASE_URL}photo.webp`}
+              alt={`${profile.name}, ${profile.title} — ${profile.location}`}
+              width={352}
+              height={352}
+              fetchPriority="high"
+            />
           </div>
         </div>
       </div>
