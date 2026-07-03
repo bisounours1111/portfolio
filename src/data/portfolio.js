@@ -4,7 +4,7 @@ export const profile = {
   phone: '+33 6 46 53 09 03',
   phoneHref: 'tel:+33646530903',
   linkedin: 'https://www.linkedin.com/in/yanis-da%C3%AF-834443257/',
-  github: '',
+  github: 'https://github.com/bisounours1111',
 }
 
 export function getSocialLinks(profileData) {

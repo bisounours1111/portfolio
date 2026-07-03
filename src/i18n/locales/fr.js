@@ -1,7 +1,21 @@
 export default {
   meta: {
-    title: 'Yanis DAÏ — Développeur Full-Stack',
-    description: 'Portfolio de Yanis DAÏ — Développeur Full-Stack.',
+    title: 'Yanis DAÏ — Développeur Full-Stack | Portfolio Lille',
+    description:
+      'Portfolio de Yanis DAÏ, développeur Full-Stack à Lille. React, Vue.js, Python, FastAPI, PostgreSQL. Alternance CustomsBridge. Disponible en freelance.',
+    keywords:
+      'Yanis DAÏ, développeur full-stack, développeur web Lille, React, Vue.js, Python, FastAPI, portfolio développeur, freelance Lille, Ynov',
+    jobTitle: 'Développeur Full-Stack',
+    skills: [
+      'Développement web',
+      'React',
+      'Vue.js',
+      'Python',
+      'FastAPI',
+      'PostgreSQL',
+      'JavaScript',
+      'TypeScript',
+    ],
   },
   nav: {
     home: 'Accueil',
@@ -11,6 +25,7 @@ export default {
     contact: 'Contact',
     cv: 'CV',
     toggleMenu: 'Ouvrir le menu',
+    skipToContent: 'Aller au contenu principal',
   },
   hero: {
     badge: 'Disponible pour une nouvelle tâche en freelance',

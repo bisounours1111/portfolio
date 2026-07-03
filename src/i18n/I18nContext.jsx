@@ -19,12 +19,7 @@ export function I18nProvider({ children }) {
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, locale)
-    document.documentElement.lang = locale
-    document.title = messages.meta.title
-
-    const metaDesc = document.querySelector('meta[name="description"]')
-    if (metaDesc) metaDesc.setAttribute('content', messages.meta.description)
-  }, [locale, messages])
+  }, [locale])
 
   const t = useCallback(
     (key) => key.split('.').reduce((obj, part) => obj?.[part], messages) ?? key,

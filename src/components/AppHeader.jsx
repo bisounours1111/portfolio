@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import LanguageSwitcher from './LanguageSwitcher'
+import { profile } from '../data/portfolio.js'
 import { useI18n } from '../i18n/I18nContext.jsx'
 import './AppHeader.css'
 
@@ -60,7 +61,7 @@ export default function AppHeader({ links }) {
       className={`site-header site-header--loaded${scrolled ? ' site-header--scrolled' : ''}`}
     >
       <div className="container site-header__inner">
-        <a href="#home" className="site-header__brand" onClick={closeMenu}>
+        <a href="#home" className="site-header__brand" aria-label={`${profile.name} — ${t('nav.home')}`} onClick={closeMenu}>
           Yanis
         </a>
 
