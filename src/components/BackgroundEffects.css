@@ -1,13 +1,3 @@
-<template>
-  <div class="bg-effects" aria-hidden="true">
-    <div class="bg-effects__grid"></div>
-    <div class="bg-effects__orb bg-effects__orb--1"></div>
-    <div class="bg-effects__orb bg-effects__orb--2"></div>
-    <div class="bg-effects__orb bg-effects__orb--3"></div>
-  </div>
-</template>
-
-<style scoped>
 .bg-effects {
   position: fixed;
   inset: 0;
@@ -80,4 +70,3 @@
     animation: none;
   }
 }
-</style>

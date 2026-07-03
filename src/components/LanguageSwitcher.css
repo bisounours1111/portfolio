@@ -1,31 +1,3 @@
-<script setup>
-import { useI18n } from '../i18n'
-
-const { locale, setLocale } = useI18n()
-
-const options = [
-  { code: 'fr', label: 'FR' },
-  { code: 'en', label: 'EN' },
-]
-</script>
-
-<template>
-  <div class="lang-switcher" role="group" aria-label="Language">
-    <button
-      v-for="option in options"
-      :key="option.code"
-      type="button"
-      class="lang-switcher__btn"
-      :class="{ 'lang-switcher__btn--active': locale === option.code }"
-      :aria-pressed="locale === option.code"
-      @click="setLocale(option.code)"
-    >
-      {{ option.label }}
-    </button>
-  </div>
-</template>
-
-<style scoped>
 .lang-switcher {
   display: flex;
   align-items: center;
@@ -65,4 +37,3 @@ const options = [
     margin-top: 0.5rem;
   }
 }
-</style>

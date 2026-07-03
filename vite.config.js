@@ -1,16 +1,14 @@
 import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+import react from '@vitejs/plugin-react'
 
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [react()],
+  base: process.env.GITHUB_PAGES === 'true' ? '/portfolio/' : '/',
   server: {
     port: 5173,
-    proxy: {
-      '/api': 'http://localhost:8081',
-    },
   },
   build: {
-    outDir: '../dist',
+    outDir: 'dist',
     emptyOutDir: true,
   },
 })
