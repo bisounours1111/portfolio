@@ -34,10 +34,12 @@ Le déploiement est automatisé via GitHub Actions (`.github/workflows/deploy.ym
 1. Allez sur **Settings → Pages** du dépôt :
    https://github.com/bisounours1111/portfolio/settings/pages
 2. Sous **Build and deployment → Source**, choisissez **Deploy from a branch**
-3. **Branch** : `gh-pages` — dossier **`/ (root)`** — puis **Save**
+3. **Branch** : `main` — dossier **`/docs`** — puis **Save**
 4. Poussez sur `main` (ou relancez le workflow **Actions → Deploy to GitHub Pages → Run workflow**)
 
 Le site sera disponible à : **https://bisounours1111.github.io/portfolio/**
+
+> **Important :** ne pas utiliser la branche `main` avec le dossier `/ (root)` — cela sert les fichiers sources (React non compilé) et provoque une **page blanche**. Le build compilé est publié dans le dossier `docs/`.
 
 ### Déploiements suivants
 
@@ -49,7 +51,8 @@ Chaque push sur `main` rebuild et met à jour automatiquement la branche `gh-pag
 
 | Erreur | Solution |
 |--------|----------|
-| `404` sur deploy-pages | Activez Pages avec la branche `gh-pages` (voir ci-dessus) |
+| **Page blanche** | Vérifiez que Pages utilise `main` + dossier **`/docs`**, pas `/ (root)` |
+| `404` sur les assets JS/CSS | Relancez le workflow de déploiement après avoir changé le dossier Pages |
 | Site vide ou assets manquants | Vérifiez que le build CI utilise `GITHUB_PAGES=true` |
 | Page 404 sur le site | Attendez 1–2 min après le déploiement, puis videz le cache |
 
