@@ -58,7 +58,14 @@ export default function AppHeader({ links }) {
 
   return (
     <header
-      className={`site-header site-header--loaded${scrolled ? ' site-header--scrolled' : ''}`}
+      className={[
+        'site-header',
+        'site-header--loaded',
+        scrolled ? 'site-header--scrolled' : '',
+        menuOpen ? 'site-header--menu-open' : '',
+      ]
+        .filter(Boolean)
+        .join(' ')}
     >
       <div className="container site-header__inner">
         <a href="#home" className="site-header__brand" aria-label={`${profile.name} — ${t('nav.home')}`} onClick={closeMenu}>
