@@ -29,11 +29,29 @@ npm run preview
 
 Le déploiement est automatisé via GitHub Actions (`.github/workflows/deploy.yml`).
 
-1. Dans les **Settings** du dépôt GitHub → **Pages** → Source : **GitHub Actions**
-2. Poussez sur la branche `main` — le workflow build et déploie automatiquement
-3. Le site sera disponible à : `https://<username>.github.io/portfolio/`
+### Première mise en ligne (obligatoire, une seule fois)
+
+1. Allez sur **Settings → Pages** du dépôt :
+   https://github.com/bisounours1111/portfolio/settings/pages
+2. Sous **Build and deployment → Source**, choisissez **Deploy from a branch**
+3. **Branch** : `gh-pages` — dossier **`/ (root)`** — puis **Save**
+4. Poussez sur `main` (ou relancez le workflow **Actions → Deploy to GitHub Pages → Run workflow**)
+
+Le site sera disponible à : **https://bisounours1111.github.io/portfolio/**
+
+### Déploiements suivants
+
+Chaque push sur `main` rebuild et met à jour automatiquement la branche `gh-pages`.
 
 > Le chemin de base (`/portfolio/`) est configuré dans `vite.config.js` lors du build CI (`GITHUB_PAGES=true`).
+
+### Dépannage
+
+| Erreur | Solution |
+|--------|----------|
+| `404` sur deploy-pages | Activez Pages avec la branche `gh-pages` (voir ci-dessus) |
+| Site vide ou assets manquants | Vérifiez que le build CI utilise `GITHUB_PAGES=true` |
+| Page 404 sur le site | Attendez 1–2 min après le déploiement, puis videz le cache |
 
 ## Structure
 
