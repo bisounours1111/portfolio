@@ -1,0 +1,24 @@
+{
+  "name": "Yanis DAÏ — Portfolio",
+  "short_name": "Yanis DAÏ",
+  "description": "Portfolio de Yanis DAÏ, développeur Full-Stack à Lille.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#1c1c1c",
+  "theme_color": "#7d53de",
+  "lang": "fr",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "photo.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    }
+  ]
+}
