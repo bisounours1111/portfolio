@@ -34,12 +34,12 @@ Le déploiement est automatisé via GitHub Actions (`.github/workflows/deploy.ym
 1. Allez sur **Settings → Pages** du dépôt :
    https://github.com/bisounours1111/portfolio/settings/pages
 2. Sous **Build and deployment → Source**, choisissez **Deploy from a branch**
-3. **Branch** : `main` — dossier **`/docs`** — puis **Save**
-4. Poussez sur `main` (ou relancez le workflow **Actions → Deploy to GitHub Pages → Run workflow**)
+3. **Branch** : `gh-pages` — dossier **`/ (root)`** — puis **Save**
+4. Relancez le workflow **Actions → Deploy to GitHub Pages → Run workflow**
 
 Le site sera disponible à : **https://bisounours1111.github.io/portfolio/**
 
-> **Important :** ne pas utiliser la branche `main` avec le dossier `/ (root)` — cela sert les fichiers sources (React non compilé) et provoque une **page blanche**. Le build compilé est publié dans le dossier `docs/`.
+> **Important :** ne pas utiliser `main` / `(root)` — cela sert les fichiers sources React non compilés et provoque une **page blanche**. Le build compilé est publié automatiquement sur la branche **`gh-pages`**.
 
 ### Déploiements suivants
 
