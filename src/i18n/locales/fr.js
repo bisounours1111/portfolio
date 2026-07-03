@@ -137,7 +137,7 @@ export default {
     },
     {
       year: '2022 – 2025',
-      title: 'Licence Informatique',
+      title: 'Bachelor Informatique',
       description: 'Ynov Lille, France',
     },
     {
