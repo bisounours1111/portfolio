@@ -1,0 +1,33 @@
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 200;
+  pointer-events: none;
+}
+
+.scroll-progress__bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-accent), #b794f6, var(--color-accent));
+  background-size: 200% 100%;
+  animation: progress-shimmer 2s linear infinite;
+  box-shadow: 0 0 12px var(--color-accent-glow);
+  transition: width 0.1s linear;
+}
+
+@keyframes progress-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-progress__bar {
+    animation: none;
+  }
+}
