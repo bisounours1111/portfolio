@@ -33,9 +33,11 @@ jobs:
         env:
           GITHUB_PAGES: 'true'
 
-      - name: Deploy to gh-pages branch
+      - name: Deploy to docs/ on main
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-          cname: false
+          publish_branch: main
+          destination_dir: docs
+          keep_files: true
